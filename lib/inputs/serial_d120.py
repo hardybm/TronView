@@ -28,7 +28,7 @@ class serial_d120(Input):
         # Playback or live serial
         if (self.PlayFile is not None) and (self.PlayFile is not False):
             if self.PlayFile is True:
-                defaultTo = "dynon_d120_data1.txt"
+                defaultTo = "dynon_d180_EMS_RV7_2.txt"
                 self.PlayFile = hud_utils.readConfig(self.name, "playback_file", defaultTo)
             self.ser, self.input_logFileName = Input.openLogFile(self, self.PlayFile, "r")
             self.isPlaybackMode = True
