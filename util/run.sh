@@ -304,6 +304,7 @@ while $RUN_MENU_AGAIN; do
                                 --checklist "Use space bar to select 1 or more Inputs :" 20 60 10 \
                                 "serial_mgl" "MGL Serial" OFF \
                                 "serial_d100" "Dynon D100 Serial" OFF \
+                                "serial_d120" "Dynon D120 Serial" OFF \
                                 "serial_skyview" "Dynon Skyview Serial" OFF \
                                 "serial_g3x" "Garmin G3x Serial" OFF \
                                 "serial_grt_eis" "Grand Rapids EIS Serial" OFF \
@@ -410,7 +411,8 @@ while $RUN_MENU_AGAIN; do
                     subchoice=$(dialog --clear --title "Dynon Demos" \
                                       --menu "Choose a demo:" 20 60 10 \
                                       "1" "Dynon D100" \
-                                      "2" "Dynon Skyview" \
+                                      "2" "Dynon D180" \
+                                      "3" "Dynon Skyview" \
                                       2>&1 1>&3)
                     exit_status=$?
                     exec 3>&-
@@ -422,6 +424,10 @@ while $RUN_MENU_AGAIN; do
                                 selected_name="Dynon D100"
                                 ;;
                             2) 
+                                choice="--in1 serial_d100 --playfile1 dynon_d180_EFIS_RV7_2.txt --in2 serial_d120 --playfile2 dynon_d180_EMS_RV7_2.txt -e"
+                                selected_name="Dynon D180"
+                                ;;
+                            3) 
                                 choice="--in1 serial_skyview -e"
                                 selected_name="Dynon Skyview"
                                 ;;
